@@ -1,8 +1,29 @@
-# Aung Songbook
+<div align="center">
 
-Aung Songbook is a responsive personal web app for storing songs, practising lyrics and chords, and learning music theory. Published songs are available through the public library, while a protected administrator workspace handles editing and publishing.
+# 𝄞 Aung Songbook
 
-## Highlights
+### Your songs. Your chords. Your music journey.
+
+A calm, responsive space for collecting songs, practising lyrics and chords, and learning music theory.
+
+[![Node.js](https://img.shields.io/badge/Node.js-22%2B-78C49D?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Express](https://img.shields.io/badge/Express-5-1B2A25?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-Persistent-6ABFA2?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Tests](https://img.shields.io/badge/Tests-8%20passing-78C49D?style=for-the-badge&logo=checkmarx&logoColor=white)](#-quality-checks)
+
+[Features](#-highlights) · [Quick start](#-quick-start) · [Song data](#-song-data--persistence) · [Deployment](#-deployment) · [API](#-api-overview)
+
+</div>
+
+---
+
+## ✨ Highlights
+
+| 🎵 Songbook | 🎸 Practice tools | 🎼 Theory |
+| --- | --- | --- |
+| Search, filter, sort, and publish songs | Transpose keys, chords, and capo together | Guided lessons from notation to guitar |
+| Lyrics and chord-sheet importing | Lyrics, chords, or combined reading modes | Interactive scales, intervals, and chords |
+| Secure administrator workspace | Adjustable, remembered reading size | Topic search and lesson-by-lesson navigation |
 
 - Searchable song library with language, genre, key, and sorting controls
 - Lyrics-only, chords-only, and combined reader modes
@@ -15,61 +36,56 @@ Aung Songbook is a responsive personal web app for storing songs, practising lyr
 - Lesson search, topic navigation, and previous/next lesson controls
 - Responsive light and dark themes with accessible navigation and focus states
 
-## Technology
+> [!TIP]
+> Visitors can browse published songs without an account. Sign in only when you need to add, edit, or publish content.
 
-- Node.js 22+
-- Express 5
-- Vanilla HTML, CSS, and JavaScript modules
-- SQLite through `better-sqlite3`
-- bcrypt password verification and server-side sessions
-- Node's built-in test runner, Supertest, and ESLint
+## 🧰 Technology
 
-## Project structure
+`Node.js 22+` · `Express 5` · `Vanilla JavaScript` · `SQLite` · `bcrypt` · `Supertest` · `ESLint`
+
+## 🗂️ Project structure
 
 ```text
-client/                 Browser interface and music-theory lessons
-server/app.js           Express application and API routes
-server/db.js            SQLite schema, connection, and backups
-server/repository.js    Song persistence and queries
-server/security.js      Authentication and session handling
-server/music.js         Chord transposition utilities
-scripts/build.js        Production client build
-test/                   API, security, workflow, parser, and music tests
+PersonalUse/
+├── client/                 Browser interface and theory lessons
+├── server/
+│   ├── app.js              Express application and API routes
+│   ├── db.js               SQLite schema, connection, and backups
+│   ├── repository.js       Song persistence and queries
+│   ├── security.js         Authentication and sessions
+│   └── music.js            Chord transposition utilities
+├── scripts/build.js        Production client build
+└── test/                   Workflow, parser, API, and security tests
 ```
 
-## Local setup
+## 🚀 Quick start
 
-1. Install Node.js 22 or newer.
-2. Install dependencies:
+### 1 · Install
 
-   ```bash
-   npm install
-   ```
+```bash
+git clone https://github.com/aminkhant1999/PersonalUse.git
+cd PersonalUse
+npm install
+```
 
-3. Create your local configuration:
+### 2 · Configure
 
-   ```bash
-   cp .env.example .env
-   ```
+```bash
+cp .env.example .env
+npm run hash-password
+```
 
-4. Generate an administrator password hash:
+Add the generated hash to `ADMIN_PASSWORD_HASH` in `.env`, then set `SESSION_SECRET` to a random value of at least 32 characters.
 
-   ```bash
-   npm run hash-password
-   ```
+### 3 · Run
 
-5. Add the generated hash to `ADMIN_PASSWORD_HASH` in `.env`. Set `SESSION_SECRET` to a random value of at least 32 characters.
-6. Start the development server:
+```bash
+npm run dev
+```
 
-   ```bash
-   npm run dev
-   ```
+Open **[localhost:3000](http://localhost:3000)**. The SQLite database is created automatically at the configured `DATABASE_URL`.
 
-7. Open [http://localhost:3000](http://localhost:3000).
-
-The SQLite database is created automatically at the configured `DATABASE_URL`.
-
-## Environment variables
+## 🔐 Environment variables
 
 | Variable | Description |
 | --- | --- |
@@ -84,9 +100,10 @@ The SQLite database is created automatically at the configured `DATABASE_URL`.
 | `LYRICS_PROVIDER_API_KEY` | Reserved for a properly licensed lyrics provider |
 | `CHORD_PROVIDER_API_KEY` | Reserved for a properly licensed chord provider |
 
-Do not commit `.env`, production credentials, or the `data/` directory.
+> [!CAUTION]
+> Never commit `.env`, production credentials, password hashes, or the `data/` directory.
 
-## Song data and persistence
+## 💾 Song data & persistence
 
 Songs are stored in SQLite rather than browser storage, so restarting or refreshing the app does not remove them. The configured database directory must be on persistent storage in production.
 
@@ -98,7 +115,7 @@ data/backups/songbook-latest.db
 
 The database and backup directory are intentionally excluded from Git. Back them up separately when moving the app to another computer or host.
 
-### Importing a chord sheet
+### ✍️ Importing a chord sheet
 
 In the administrator editor, paste a complete chord sheet into **Plain lyrics for search / chord-sheet import**. Section headings such as `[Intro]`, `[Verse 1]`, and `[Chorus]`, together with chord rows, are parsed automatically into the structured JSON field.
 
@@ -126,7 +143,7 @@ Structured content follows this shape:
 
 Always review the generated alignment before publishing.
 
-## Commands
+## ⌨️ Commands
 
 | Command | Purpose |
 | --- | --- |
@@ -138,7 +155,9 @@ Always review the generated alignment before publishing.
 | `npm run seed` | Safely create any missing seed records |
 | `npm run hash-password` | Generate a bcrypt administrator password hash |
 
-Before committing a release:
+## ✅ Quality checks
+
+Run the complete verification sequence before a release:
 
 ```bash
 npm run lint
@@ -146,9 +165,12 @@ npm run build
 npm test
 ```
 
-## Deployment
+The current suite covers public browsing, authentication, administrator workflows, validation, rate limiting, chord transposition, chord-sheet parsing, and secret protection.
 
-### Render
+## ☁️ Deployment
+
+<details>
+<summary><strong>Deploy with Render</strong></summary>
 
 The included `render.yaml` defines a Node web service with a persistent disk for SQLite.
 
@@ -160,29 +182,26 @@ The included `render.yaml` defines a Node web service with a persistent disk for
 
 Keep a single application instance while using SQLite. Use PostgreSQL or another shared database before horizontally scaling.
 
-### Docker
+</details>
 
-Build with the included `Dockerfile`, mount persistent storage at `/app/data`, and provide the same environment variables. Without a persistent volume, song data will disappear when the container is replaced.
+<details>
+<summary><strong>Deploy with Docker</strong></summary>
 
-## API overview
+Build with the included `Dockerfile`, mount persistent storage at `/app/data`, and provide the same environment variables.
 
-Public routes:
+> Without a persistent volume, song data will disappear when the container is replaced.
 
-- `GET /api/health`
-- `GET /api/songs`
-- `GET /api/songs/:slug`
-- `POST /api/songs/:id/open`
-- `GET /api/filters`
+</details>
 
-Authentication routes:
+## 🔌 API overview
 
-- `POST /api/auth/login`
-- `POST /api/auth/logout`
-- `GET /api/auth/session`
+| Area | Routes |
+| --- | --- |
+| Public | `GET /api/health` · `GET /api/songs` · `GET /api/songs/:slug` · `POST /api/songs/:id/open` · `GET /api/filters` |
+| Authentication | `POST /api/auth/login` · `POST /api/auth/logout` · `GET /api/auth/session` |
+| Administration | Protected song, dashboard, publication, suggestion, and job routes under `/api/admin` |
 
-Protected administrator routes under `/api/admin` provide dashboard data, song management, publication controls, metadata suggestions, and job status.
-
-## Security and content
+## 🛡️ Security & content
 
 - Authentication cookies are HTTP-only and SameSite protected.
 - Write endpoints require an authenticated administrator session.
@@ -190,7 +209,7 @@ Protected administrator routes under `/api/admin` provide dashboard data, song m
 - Input is validated and sanitised before persistence.
 - Add or publish lyrics and chord arrangements only when you have permission to store and display them.
 
-## Troubleshooting
+## 🩺 Troubleshooting
 
 - **Login is unavailable:** set both `ADMIN_PASSWORD_HASH` and `SESSION_SECRET`, then restart.
 - **Database cannot open:** make sure the parent directory of `DATABASE_URL` exists and is writable.
@@ -198,6 +217,14 @@ Protected administrator routes under `/api/admin` provide dashboard data, song m
 - **A draft is missing from the public library:** publish it from the administrator dashboard.
 - **Browser requests are rejected:** set `CLIENT_URL` to the exact deployed origin, including `https://`.
 
-## License
+## 📜 Licence
 
 This is a personal-use application. No licence is granted for third-party song lyrics, chord arrangements, or referenced educational material.
+
+---
+
+<div align="center">
+
+Made for quieter practice sessions, one song at a time. 🎶
+
+</div>

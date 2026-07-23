@@ -13,7 +13,7 @@ A calm, responsive space for collecting songs, practising lyrics and chords, and
 
 [![Open Aung Songbook](https://img.shields.io/badge/OPEN_LIVE_WEB_APP-Launch_Aung_Songbook-78C49D?style=for-the-badge&logo=googlechrome&logoColor=white)](https://aung-songbook.aminkhant1999.chatgpt.site)
 
-[Features](#-highlights) · [Quick start](#-quick-start) · [Song data](#-song-data--persistence) · [Deployment](#-deployment) · [API](#-api-overview)
+[Screenshots](#-screenshots) · [Features](#-highlights) · [Quick start](#-quick-start) · [Song data](#-song-data--persistence) · [Deployment](#-deployment) · [API](#-api-overview)
 
 </div>
 
@@ -21,6 +21,22 @@ A calm, responsive space for collecting songs, practising lyrics and chords, and
 
 > [!NOTE]
 > **Recruiter or portfolio visitor?** Open the [live Aung Songbook web app](https://aung-songbook.aminkhant1999.chatgpt.site) directly in your browser. No download, installation, account, or local setup is required.
+
+## 📸 Screenshots
+
+| Song library | Chord reader |
+| --- | --- |
+| [![Responsive song library with search, filters, and published song cards](docs/screenshots/song-library.jpg)](https://aung-songbook.aminkhant1999.chatgpt.site/#/?sort=added_new) | [![Payphone chord reader with displayed-key, capo, transpose, and reading controls](docs/screenshots/chord-reader.jpg)](https://aung-songbook.aminkhant1999.chatgpt.site/#/song/payphone-maroon-5) |
+
+| Interactive theory lesson | Secure admin workspace |
+| --- | --- |
+| [![Music notation lesson with topic navigation, core ideas, interactive grand staff, and lesson controls](docs/screenshots/theory-lesson.jpg)](https://aung-songbook.aminkhant1999.chatgpt.site/#/theory/notation) | ![Private administrator dashboard showing publishing metrics and song-management controls](docs/screenshots/admin-dashboard.jpg) |
+
+<div align="center">
+
+Click a public screenshot to open that view in the live application.
+
+</div>
 
 ## ✨ Highlights
 

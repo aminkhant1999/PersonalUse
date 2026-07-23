@@ -46,7 +46,7 @@ A calm, responsive space for collecting songs, practising lyrics and chords, and
 ## 🗂️ Project structure
 
 ```text
-PersonalUse/
+AungSongBook/
 ├── client/                 Browser interface and theory lessons
 ├── server/
 │   ├── app.js              Express application and API routes
@@ -63,8 +63,8 @@ PersonalUse/
 ### 1 · Install
 
 ```bash
-git clone https://github.com/aminkhant1999/PersonalUse.git
-cd PersonalUse
+git clone https://github.com/aminkhant1999/AungSongBook.git
+cd AungSongBook
 npm install
 ```
 

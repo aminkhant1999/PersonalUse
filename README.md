@@ -11,11 +11,16 @@ A calm, responsive space for collecting songs, practising lyrics and chords, and
 [![SQLite](https://img.shields.io/badge/SQLite-Persistent-6ABFA2?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![Tests](https://img.shields.io/badge/Tests-8%20passing-78C49D?style=for-the-badge&logo=checkmarx&logoColor=white)](#-quality-checks)
 
+[![Open Aung Songbook](https://img.shields.io/badge/OPEN_LIVE_WEB_APP-Launch_Aung_Songbook-78C49D?style=for-the-badge&logo=googlechrome&logoColor=white)](https://aung-songbook.aminkhant1999.chatgpt.site)
+
 [Features](#-highlights) · [Quick start](#-quick-start) · [Song data](#-song-data--persistence) · [Deployment](#-deployment) · [API](#-api-overview)
 
 </div>
 
 ---
+
+> [!NOTE]
+> **Recruiter or portfolio visitor?** Open the [live Aung Songbook web app](https://aung-songbook.aminkhant1999.chatgpt.site) directly in your browser. No download, installation, account, or local setup is required.
 
 ## ✨ Highlights
 
